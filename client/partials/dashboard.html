@@ -1,0 +1,25 @@
+<!-- <a href='#' ng-click = 'logout()'>Logout</a> -->
+<h2>Welcome, {{currentUser.name}}</h2>
+<form>
+Messages: <input type='text' ng-model='messageController.message.message' > <br>
+<input type="submit" value="Post a message" ng-click='messageController.addMess()'> <br>
+</form>
+
+
+<h1>The Wall Messages</h1>
+<div ng-repeat="x in messageController.messages">
+	<p>{{x.message}}</p>
+	<p>-{{x._user.first}}</p>
+	<p>Comments:</p>
+	<div ng-repeat='comment in x.comments'>
+		<p>{{comment.comment}}</p>
+		<p>-{{comment._user.first}}</p>
+	</div>
+	<h2>Add a comment:</h2>
+	<form ng-submit = 'messageController.addComm(x._id)'>
+		<input type="text" ng-model='messageController.comment[x._id].comment'>
+		<input type="submit" value='Add Comment'>
+	</form>
+</div>
+
+</div>

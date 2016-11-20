@@ -1,0 +1,21 @@
+<fieldset>
+<legend><h3>Register</h3></legend>
+<p ng-repeat='error in regErrors'>{{error.message}}</p>  <!-- ng-repeat for messages  for Registrqation Errors-->
+<form ng-submit = 'addUser(newUser)'>
+	<input placeholder = "name" type = 'text' ng-model = 'newUser.name'> Name <br>
+	<input placeholder = "email" type = 'text' ng-model = 'newUser.email'> Email <br>
+	<input placeholder = "password" type = 'text' ng-model = 'newUser.password'> Password <br>
+	<input placeholder = "password confirmation" type = 'text' ng-model = 'newUser.pw_confirm'> Confirm pw <br>
+	<input type="submit" name="Register">
+</form>
+</fieldset>
+
+<fieldset>
+<legend><h3>Login</h3> </legend>
+<p ng-repeat='error in loginErrors'>{{error.message}}</p> <!-- ng-repeat for messages  for Login  Errors-->
+<form ng-submit = 'login(user)'>
+	<input placeholder = "email" type = 'text' ng-model = 'user.email'>
+	<input placeholder = "password" type = 'text' ng-model = 'user.password'>
+	<input type="submit" name="Login">
+</form>
+</fieldset>

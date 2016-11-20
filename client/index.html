@@ -1,0 +1,19 @@
+<html ng-app="app">  <!-- ng-app -->
+<head>
+  <title>RegLog Verification</title>
+  <script type="text/javascript" src="angular/angular.min.js"></script>
+  <script type="text/javascript" src="angular/angular-route.min.js"></script>
+<!-- Instead of linking routes, linked the app instead  -->  <script>  var app = angular.module('app', ['ngRoute']);  </script>
+  <script type="text/javascript" src = "assets/app.js"></script>
+  <script type="text/javascript" src = "assets/factories.js"></script>
+  <script type="text/javascript" src = "assets/nextFactory.js"></script>
+  <script type="text/javascript" src = "assets/startcontroller.js"></script>
+  <script type="text/javascript" src = "assets/nextcontroller.js"></script>
+  <script type="text/javascript" src = "assets/messageController.js"></script>
+<!-- add the other factory / controllers -->
+
+  </head>
+  <body>
+    <div ng-view = "">
+    </div>
+  </body>
