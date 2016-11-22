@@ -1,7 +1,7 @@
 // var app = angular.module('app', ['ngRoute']);
 var users = require('./../controllers/users.js');
-var messages = require('./../controllers/messages.js');
-var comments = require('./../controllers/comments.js'); // require/embed controller
+// var messages = require('./../controllers/messages.js');
+// var comments = require('./../controllers/comments.js'); // require/embed controller
 module.exports = function(app) {
 // verb: get, plural of target as the URI is the RESTful index method (it returns all friends)
 	app.post('/login', users.login)
@@ -11,13 +11,10 @@ module.exports = function(app) {
 
 // below are all of the routes that use the middleware before invoking their functions
 	app.get('/currentUser', users.getCurrent)
-	// app.get('/message', messages.dash)
-	app.get('/message', messages.index)
-	app.post('/addMessage', messages.addMess)
-	app.post('/message/:id/comments', comments.create)
+	// app.get('/message', messages.index)
+	// app.post('/addMessage', messages.addMess)
+	// app.post('/message/:id/comments', comments.create)
 };
-
-	//    ^^  that's the only route that middles before invoke
 
 
 //userAuth middleware

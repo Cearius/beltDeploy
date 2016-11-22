@@ -1,4 +1,3 @@
-// We want to create a file that has the schema for our friends and creates a model that we can then call upon in our controller
 
 // MODELS
 
@@ -11,5 +10,4 @@ var UserSchema = new mongoose.Schema({ // set a schema
 }, //validations
 {timestamps:true});
 mongoose.model('User', UserSchema); //pass to Controller
-//this file will be run when we require it using our config file
- // since the model is defined we'll be able to access it from our controller
+
