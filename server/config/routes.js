@@ -11,10 +11,10 @@ module.exports = function(app) {
 
 // below are all of the routes that use the middleware before invoking their functions
 	app.get('/currentUser', users.getCurrent)
-	app.get('/message', messages.dash)
+	// app.get('/message', messages.dash)
 	app.get('/message', messages.index)
 	app.post('/addMessage', messages.addMess)
-	app.post('message/:id/comments', comments.create)
+	app.post('/message/:id/comments', comments.create)
 };
 
 	//    ^^  that's the only route that middles before invoke

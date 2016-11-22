@@ -1,8 +1,10 @@
- app.controller('messageController', ['$scope','nextFactory', '$location', 'messageController',  function messageController($scope, nextFactory, $location){
+ app.controller('messageController', ['$scope','startFactory','nextFactory', '$location', function messageController($scope, startFactory, nextFactory, $location){
+$scope.message = {};
 
   function getMess(){
      nextFactory.getMess(function(data){
-       $scope.message = data;
+       console.log('Regularstuff', data);
+       $scope.messages = data;
      })
    }; getMess();
 
@@ -14,11 +16,14 @@
   //  getMess();
 
    $scope.addMess = function(){
+     console.log('dolphin');
+     console.log($scope.message);
      nextFactory.addMess($scope.message, function(data){
-       console.log(message);
+       console.log(data);
         //  $location.path('/')
+        getMess();
      })
-   }; getMess();
+   };
 
   //  this.addMess = function(){
   //    userFactory.addMess(this.message, function(data) {
@@ -32,12 +37,14 @@
   //  };
 
 
-   $scope.addComm = function(messageId){
-     nextFactory.addComm($scope.message[messageId],messageId, function(data){
-       console.log(message);
+   $scope.addComm = function(message, messageId){
+     console.log(message.comment);
+     nextFactory.addComm(message.comment, messageId, function(data){
+      //  console.log(message);
         //  $location.path('/')
+        getMess();
      })
-   }; getMess();
+   };
 
   //  this.addComm = function(messageId){
   //    userFactory.addComm(this.comment[messageId], messageId, function(data){
@@ -50,5 +57,7 @@
   //    })
   //  }
 
-
+  startFactory.getCurrentUser(function(user){
+    $scope.currentUser = user
+  })
 }]);

@@ -1,25 +1,31 @@
 <!-- <a href='#' ng-click = 'logout()'>Logout</a> -->
 <h2>Welcome, {{currentUser.name}}</h2>
 <form>
-Messages: <input type='text' ng-model='messageController.message.message' > <br>
-<input type="submit" value="Post a message" ng-click='messageController.addMess()'> <br>
+Messages: <input type='text' ng-model='message.message' > <br>
+<input type="submit" value="Post a message" ng-click='addMess()'> <br>
 </form>
 
+<hr>
 
-<h1>The Wall Messages</h1>
-<div ng-repeat="x in messageController.messages">
-	<p>{{x.message}}</p>
-	<p>-{{x._user.first}}</p>
-	<p>Comments:</p>
-	<div ng-repeat='comment in x.comments'>
-		<p>{{comment.comment}}</p>
-		<p>-{{comment._user.first}}</p>
-	</div>
-	<h2>Add a comment:</h2>
-	<form ng-submit = 'messageController.addComm(x._id)'>
-		<input type="text" ng-model='messageController.comment[x._id].comment'>
-		<input type="submit" value='Add Comment'>
-	</form>
+<h2>The Wall says:</h2>
+<div ng-repeat="x in messages| orderBy: 'timestamps' ">
+	<fieldset>
+			<h3>"{{x.message}}"</h3>
+			<p>-{{x._user.name}}</p>
+			<!-- <h3>Comments:</h3> -->
+				<fieldset>
+					<div ng-repeat='comment in x._comments'>
+						<h4>"{{comment.comment}}"</h4>
+						<p>-{{comment._user.name}}</p> <span>{{timestamps}}</span>
+						<hr>
+					</div>
+				</fieldset>
+			<form ng-submit = 'addComm(comm, x._id)'>
+				<input type="text" ng-model='comm.comment'>
+				<input type="submit" value='Add Comment'>
+			</form>
+	</fieldset>
 </div>
+
 
 </div>

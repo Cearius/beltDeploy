@@ -16,10 +16,6 @@ app.config(function($routeProvider, $httpProvider) {
     })
     .when('/', {
       templateUrl: 'partials/dashboard.html',
-      controller: 'nextController'
-    })
-    .when('/addMessage', {
-      templateUrl: 'partials/dashboard.html',
       controller: 'messageController'
     })
     .otherwise({

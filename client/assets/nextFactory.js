@@ -10,10 +10,11 @@ app.factory('nextFactory', ['$http', '$location', function($http, $location){
   }
 
   factory.addMess = function(message, callback){
+    console.log(message);
     $http({
       method: "POST",
       url: "/addMessage",
-      data: message
+      data: {message:message.message}
     }).then(function(returned){
       console.log('factory received response:',returned.data)
       callback(returned.data);
@@ -21,10 +22,11 @@ app.factory('nextFactory', ['$http', '$location', function($http, $location){
   }
 
   factory.addComm = function(comment, messageId, callback){
+    console.log(comment);
     $http({
       method: "POST",
-      url: "/message/"+messageId+'/comments',
-      data: comment
+      url: '/message/'+messageId+'/comments',
+      data: {comment:comment}
     }).then(function(returned){
       console.log('factory received response:',returned.data)
       callback(returned.data);

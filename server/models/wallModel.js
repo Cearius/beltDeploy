@@ -4,7 +4,7 @@ var mongoose = require('mongoose'); // mongoose init
 var MessageSchema = new mongoose.Schema({ // set a schema
   _user: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
   message: {type:String, required:true},
-  _comment:{type: mongoose.Schema.Types.ObjectId, ref: "Comment"}
+  _comments:[{type: mongoose.Schema.Types.ObjectId, ref: "Comment"}]
   // _comment: {[comments]}
 }, //
 {timestamps:true});
